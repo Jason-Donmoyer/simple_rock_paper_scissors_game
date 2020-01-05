@@ -73,6 +73,13 @@ while game:
     print(f'Player1 score: {player1_score}')
     print(f'Player2 score: {player2_score}')
 
+    if player1_score > player2_score:
+        print('Player1 is in the lead!!')
+    elif player1_score < player2_score:
+        print('The AI is ahead!')
+    elif player1_score == player2_score:
+        print('All tied up!')
+
     #new round or quit
     playAgain = input("Play again? Y/N")
     if playAgain == 'Y' or playAgain == 'y':
