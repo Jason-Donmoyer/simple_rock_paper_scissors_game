@@ -1,8 +1,11 @@
 # Rock Paper Scissors Game
+import random
+
 player1_score = 0
 player2_score = 0
 game = True
 round = 1
+
 
 while game:
 
@@ -20,13 +23,23 @@ while game:
                 print('Please enter a valid input!!!')
                 player1_input = input('SHOOT!  -> ')
     #player2 input
-    player2_input = input('SHOOT!  -> ')
-    if player2_input != 'rock':
-        if player2_input != 'paper':
-            if player2_input != 'scissors':
-                print('Please enter a valid input!!!')
-                player2_input = input('SHOOT!  -> ')
-    #result
+    # player2_input = input('SHOOT!  -> ')
+    # if player2_input != 'rock':
+    #     if player2_input != 'paper':
+    #         if player2_input != 'scissors':
+    #             print('Please enter a valid input!!!')
+    #             player2_input = input('SHOOT!  -> ')
+    #player2 AI input
+    random_num = random.randint(1,3)
+    if random_num == 1:
+        player2_input = 'rock'
+    elif random_num == 2:
+        player2_input = 'paper'
+    elif random_num == 3:
+        player2_input = 'scissors'
+
+    print(f'Player2 shoots {player2_input}!')
+    #result logic
 
     if player1_input == 'rock':
         if player2_input == 'rock':
@@ -56,11 +69,13 @@ while game:
             print('scissors cut paper')
             player1_score += 1
 
+    #print scores
     print(f'Player1 score: {player1_score}')
     print(f'Player2 score: {player2_score}')
 
+    #new round or quit
     playAgain = input("Play again? Y/N")
-    if playAgain == 'Y':
+    if playAgain == 'Y' or playAgain == 'y':
         game = True
         round += 1
     else:
